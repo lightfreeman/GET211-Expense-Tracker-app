@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker & Budget Alert</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>💰 Expense Tracker</h2>
+
+        <div class="budget-section">
+            <label>Set Monthly Budget:</label>
+            <input type="number" id="budgetInput" placeholder="e.g. 5000">
+            <button onclick="setBudget()">Set Budget</button>
+        </div>
+
+        <div class="dashboard">
+            <div class="card">
+                <h3>Budget</h3>
+                <p id="budgetDisplay">$0.00</p>
+            </div>
+            <div class="card">
+                <h3>Expenses</h3>
+                <p id="expenseDisplay">$0.00</p>
+            </div>
+            <div class="card">
+                <h3>Balance</h3>
+                <p id="balanceDisplay">$0.00</p>
+            </div>
+        </div>
+
+        <div id="alertBox" class="alert hidden">
+            ⚠️ Warning: You have exceeded your budget!
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="descInput" placeholder="Expense Name (e.g. Pizza)">
+            <input type="number" id="amountInput" placeholder="Amount">
+            <button onclick="addExpense()">Add Expense</button>
+        </div>
+
+        <ul id="expenseList">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
