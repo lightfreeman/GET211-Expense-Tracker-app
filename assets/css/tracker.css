@@ -1,4 +1,4 @@
-body {
+ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     display: flex;
@@ -23,7 +23,7 @@ body {
 
 .card {
     text-align: center;
-}
+} 
 
 .card h3 { font-size: 14px; color: #777; }
 .card p { font-weight: bold; font-size: 16px; }
@@ -71,4 +71,4 @@ li {
     font-weight: bold;
 }
 
-.hidden { display: none; }
+.hidden { display: none; } 

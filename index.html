@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker & Budget Alert</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker | GET 211</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-    <div class="container">
-        <h2>💰 Expense Tracker</h2>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">ExpenseTracker</div>
+    <nav>
+      <a href="pages/login.html" class="btn-outline">Login</a>
+      <a href="pages/register.html" class="btn-primary">Get Started</a>
+    </nav>
+  </header>
 
-        <div class="budget-section">
-            <label>Set Monthly Budget:</label>
-            <input type="number" id="budgetInput" placeholder="e.g. 5000">
-            <button onclick="setBudget()">Set Budget</button>
-        </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Track Your Expenses.<br>Stay Within Budget.</h1>
+      <p>
+        A simple and efficient way to manage your daily expenses, 
+        set monthly budgets, and receive alerts before you overspend.
+      </p>
+      <div class="hero-buttons">
+        <a href="pages/register.html" class="btn-primary">Create Account</a>
+        <a href="pages/login.html" class="btn-secondary">Login</a>
+      </div>
+    </div>
+  </section>
 
-        <div class="dashboard">
-            <div class="card">
-                <h3>Budget</h3>
-                <p id="budgetDisplay">$0.00</p>
-            </div>
-            <div class="card">
-                <h3>Expenses</h3>
-                <p id="expenseDisplay">$0.00</p>
-            </div>
-            <div class="card">
-                <h3>Balance</h3>
-                <p id="balanceDisplay">$0.00</p>
-            </div>
-        </div>
-
-        <div id="alertBox" class="alert hidden">
-            ⚠️ Warning: You have exceeded your budget!
-        </div>
-
-        <div class="input-group">
-            <input type="text" id="descInput" placeholder="Expense Name (e.g. Pizza)">
-            <input type="number" id="amountInput" placeholder="Amount">
-            <button onclick="addExpense()">Add Expense</button>
-        </div>
-
-        <ul id="expenseList">
-            </ul>
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature-card">
+      <h3>Expense Tracking</h3>
+      <p>Add, edit, and manage your daily expenses easily.</p>
     </div>
 
-    <script src="script.js"></script>
+    <div class="feature-card">
+      <h3>Budget Management</h3>
+      <p>Set monthly spending limits and monitor your usage.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Smart Alerts</h3>
+      <p>Get notified when you approach or exceed your budget.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>GET 211 – Expense Tracker Project</p>
+    <p>Developed for educational purposes</p>
+  </footer>
+
 </body>
 </html>
