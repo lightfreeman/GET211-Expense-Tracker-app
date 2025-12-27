@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Expense Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Expense Tracker</h2>
+
+    <div class="chart-container">
+        <canvas id="expenseChart"></canvas>
+    </div>
+    
+    <div class="balance-container">
+        <div>
+            <h4>Total Budget</h4>
+            <p id="budget-amount" class="money-plus">₦0.00</p>
+        </div>
+        <div>
+            <h4>Remaining</h4>
+            <p id="balance-amount">₦0.00</p>
+        </div>
+    </div>
+
+    <div id="alert-msg" class="alert">Warning: You are over budget!</div>
+
+    <div class="input-group">
+        <label>Set Budget Limit</label>
+        <input type="number" id="total-budget" placeholder="Enter total budget...">
+    </div>
+
+    <div class="input-group">
+        <label>Expense Details</label>
+        <input type="text" id="text" placeholder="Expense Name (e.g. Food)">
+        <input type="number" style="margin-top: 5px;" id="amount" placeholder="Amount">
+    </div>
+
+    <button class="add-btn" onclick="addTransaction()">Add Expense</button>
+
+    <h3>History</h3>
+    <ul id="list" class="list"></ul>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
