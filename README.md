@@ -169,6 +169,7 @@ CREATE TABLE expenses (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
 6. Open the project in your browser:
 http://localhost/GET211-Expense-Tracker-app/
 
