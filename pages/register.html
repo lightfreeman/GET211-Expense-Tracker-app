@@ -12,12 +12,11 @@
     <h2>Create Account</h2>
     <p>Start tracking your expenses today</p>
 
-    <form class="auth-form">
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email address" required />
-      <input type="password" placeholder="Password" required />
-      <input type="password" placeholder="Confirm Password" required />
-
+    <form onsubmit="registerUser(event)" class="auth-form">
+      <input type="text" name="fullname" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="password" name="confirm" placeholder="Confirm Password" required />
       <button type="submit" class="btn-primary full-btn">Register</button>
     </form>
 
@@ -27,5 +26,6 @@
     </p>
   </div>
 
+  <script src="../assets/js/auth.js"></script>
 </body>
 </html>

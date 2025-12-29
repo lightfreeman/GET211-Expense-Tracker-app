@@ -6,93 +6,189 @@ GET 211
 ## Project Title
 Expense Tracker with Budget Alerts
 
-## Project Description
-The Expense Tracker with Budget Alerts is a web-based application developed as a departmental course project.
-The system allows users to record their daily expenses, categorize spending, set a monthly budget, and receive
-alerts when their expenses approach or exceed the set budget limit.
+---
 
-The project demonstrates the application of the Software Development Life Cycle (SDLC).
+## Project Description
+
+The Expense Tracker with Budget Alerts is a web-based application developed as a departmental course project for GET 211.
+
+The system allows users to register and log in, set a total budget, record daily expenses, visualize spending through charts, and receive alerts when expenses approach or exceed the set budget.
+
+This project demonstrates the practical application of the Software Development Life Cycle (SDLC) using a full-stack approach.
 
 ---
 
 ## Project Objectives
-- Allow users to register and log in
-- Enable users to add, edit, and delete expenses
-- Categorize expenses for better tracking
-- Allow users to set a monthly budget
-- Calculate total monthly expenses automatically
-- Display alerts when spending reaches or exceeds the budget
-- Apply SDLC principles in system development
+
+- Implement user registration and login
+- Allow users to add and delete expenses
+- Store user and expense data in a database
+- Enable budget setting and tracking
+- Automatically calculate expenses and remaining balance
+- Display budget warning and critical alerts
+- Visualize expenses using charts
+- Apply SDLC principles throughout development
 
 ---
 
 ## Project Scope
 
 ### In Scope
-- User registration and login
-- Expense management (Add, Edit, Delete)
-- Expense categorization
-- Monthly budget setting
-- Budget alerts and notifications
+- User authentication (login and registration)
+- Expense management (Add and Delete)
+- Budget tracking
+- Expense dashboard with calculations
+- Chart-based expense visualization
+- Budget alert notifications
 
 ### Out of Scope
-- Online payments
-- Bank integrations
+- Online payment processing
+- Bank or wallet integrations
 - Mobile application version
+- Cloud deployment
 
 ---
 
 ## Technologies Used
-- Frontend: HTML, CSS, JavaScript
-- Backend: Node.js / PHP (Localhost)
-- Database: MySQL
-- Version Control: Git and GitHub
-- Development Environment: Localhost
+
+### Frontend
+- HTML
+- CSS (Modern and responsive design)
+- JavaScript (Vanilla JS)
+- Chart.js (for expense visualization)
+
+### Backend
+- PHP
+- PHP Sessions for authentication
+
+### Database
+- MySQL (phpMyAdmin)
+
+### Tools & Environment
+- XAMPP (Apache and MySQL)
+- Git & GitHub
+- VS Code
+- Localhost
 
 ---
 
 ## System Features
-- User authentication
+
+- Secure user authentication
 - Expense tracking dashboard
-- Budget setting module
+- Budget input and monitoring
 - Automatic expense calculations
-- Budget warning and exceeded alerts
-- Simple and user-friendly interface
+- Budget warning and over-budget alerts
+- Interactive expense charts
+- Responsive and user-friendly interface
+
+---
+
+## Project Folder Structure
+
+GET211-Expense-Tracker-app/
+│
+├── backend/
+│ ├── config/
+│ │ └── db.php
+│ ├── auth/
+│ │ ├── login.php
+│ │ └── register.php
+│ └── expenses/
+│ ├── add.php
+│ └── delete.php
+│
+├── pages/
+│ ├── login.html
+│ ├── register.html
+│ └── dashboard.html
+│
+├── assets/
+│ ├── css/
+│ │ └── style.css
+│ └── js/
+│ ├── auth.js
+│ └── dashboard.js
+│
+├── index.html
+└── README.md
+
+
+---
+
+## Database Structure
+
+### users Table
+| Column | Description |
+|------|------------|
+| id | Primary Key |
+| fullname | User full name |
+| email | User email |
+| password | Hashed password |
+| created_at | Timestamp |
+
+### expenses Table
+| Column | Description |
+|------|------------|
+| id | Primary Key |
+| user_id | Foreign Key |
+| description | Expense description |
+| amount | Expense amount |
+| created_at | Timestamp |
 
 ---
 
 ## How to Run the Project Locally
 
-1. Clone the repository:
-   git clone https://github.com/lightfreeman/GET211-Expense-Tracker-app.git
+1. Install XAMPP
+ Download and install from https://www.apachefriends.org/index.html
+2. Start Apache and MySQL
+3. Clone the repository:
+git clone https://github.com/lightfreeman/GET211-Expense-Tracker-app.git
+4. Move the project folder into:
+C:\xampp\htdocs\
+5. Create the database:
+- Open `http://localhost/phpmyadmin`
+- Create database named `expense_tracker` by running the following SQL commands:
+   CREATE DATABASE expense_tracker;
+   USE expense_tracker;
+- Create `users` and `expenses` tables by running the following SQL commands:
+   CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullname VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-2. Navigate into the project folder:
-   cd GET211-Expense-Tracker-app
+CREATE TABLE expenses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+6. Open the project in your browser:
+http://localhost/GET211-Expense-Tracker-app/
 
-3. Open the project folder in a code editor (e.g. VS Code)
-
-4. Start your local server:
-   - Using XAMPP / WAMP for PHP and MySQL, or
-   - Using Node.js if the backend is Node-based
-
-5. Open your browser and go to:
-   http://localhost/
 
 ---
 
 ## Collaboration and Version Control
-GitHub is used for version control to enable collaboration among group members.
-Each member works on their own branch and runs the application locally on their system.
+
+GitHub is used for version control and collaboration among group members. Each member works on assigned features and integrates changes through the shared repository.
 
 ---
 
 ## Deployment
-This project is not hosted online.
-It is developed and tested in a local development environment (localhost) due to its academic nature.
+
+This project is developed and tested only on localhost due to its academic nature.
 
 ---
 
 ## SDLC Phases Applied
+
 1. Planning and Requirements Analysis
 2. System Design
 3. Implementation
@@ -102,9 +198,11 @@ It is developed and tested in a local development environment (localhost) due to
 ---
 
 ## Contributors
+
 GET 211 Group Project
 
 ---
 
 ## License
+
 This project is developed strictly for educational purposes.

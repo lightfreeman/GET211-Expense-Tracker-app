@@ -1,126 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard | Expense Tracker</title>
-  <link rel="stylesheet" href="../assets/css/style.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Expense Dashboard</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="../assets/css/dashboard.css"/>
 </head>
 <body>
 
-  <header class="dashboard-header">
+<!-- ================= HEADER ================= -->
+<header class="dashboard-header">
     <h2>Expense Dashboard</h2>
-    <a href="login.html" class="btn-outline">Logout</a>
-  </header>
+    <a href="\GET211-Expense-Tracker-app\index.html" class="btn-outline">Logout</a>
+</header>
 
-  <main class="dashboard">
+<!-- ================= MAIN DASHBOARD ================= -->
+<main class="dashboard">
 
-    <!-- Budget Summary -->
+    <!-- ===== SUMMARY SECTION ===== -->
     <section class="card summary">
-      <div>
-        <h4>Monthly Budget</h4>
-        <p class="amount">₦100,000</p>
-      </div>
-      <div>
-        <h4>Total Spent</h4>
-        <p class="amount danger">₦75,000</p>
-      </div>
-      <div>
-        <h4>Remaining</h4>
-        <p class="amount success">₦25,000</p>
-      </div>
-    </section>
-
-    <!-- Add Expense -->
-    <section class="card">
-      <h3>Add Expense</h3>
-      <form class="expense-form">
-        <input type="text" placeholder="Expense name" />
-        <input type="number" placeholder="Amount" />
-        <select>
-          <option>Select category</option>
-          <option>Food</option>
-          <option>Transport</option>
-          <option>Rent</option>
-          <option>Utilities</option>
-        </select>
-        <button class="btn-primary">Add Expense</button>
-      </form>
-    </section>
-
-    <!-- Expense List -->
-    <section class="card">
-      <h3>Recent Expenses</h3>
-      <ul class="expense-list">
-        <li>
-          <span>Food</span>
-          <span>₦5,000</span>
-        </li>
-        <li>
-          <span>Transport</span>
-          <span>₦3,000</span>
-        </li>
-        <li>
-          <span>Rent</span>
-          <span>₦40,000</span>
-        </li>
-      </ul>
-    </section>
-
-  </main>
-
-</body>
-</html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker & Budget Alert</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <div class="container">
-        <h2>💰 Expense Tracker</h2>
-
-        <div class="budget-section">
-            <label>Set Monthly Budget:</label>
-            <input type="number" id="budgetInput" placeholder="e.g. 5000">
-            <button onclick="setBudget()">Set Budget</button>
+        <div>
+            <h4>Total Budget</h4>
+            <p id="budget-amount" class="amount success">₦0.00</p>
         </div>
-
-        <div class="dashboard">
-            <div class="card">
-                <h3>Budget</h3>
-                <p id="budgetDisplay">$0.00</p>
-            </div>
-            <div class="card">
-                <h3>Expenses</h3>
-                <p id="expenseDisplay">$0.00</p>
-            </div>
-            <div class="card">
-                <h3>Balance</h3>
-                <p id="balanceDisplay">$0.00</p>
-            </div>
+        <div>
+            <h4>Total Spent</h4>
+            <p id="spent-amount" class="amount danger">₦0.00</p>
         </div>
+        <div>
+            <h4>Remaining</h4>
+            <p id="balance-amount" class="amount">₦0.00</p>
+        </div>
+    </section>
 
-        <div id="alertBox" class="alert hidden">
-            ⚠️ Warning: You have exceeded your budget!
+    <!-- ===== CHART ===== -->
+    <section class="card center">
+        <h3>Expense Breakdown</h3>
+        <div class="chart-container">
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </section>
+
+    <!-- ===== ALERT ===== -->
+    <div id="alert-msg" class="alert">
+        Warning: You are over budget!
+    </div>
+
+    <!-- ===== SET BUDGET ===== -->
+    <section class="card">
+        <h3>Set Budget</h3>
+        <div class="input-group">
+            <label>Total Budget</label>
+            <input type="number" id="total-budget" placeholder="Enter total budget">
+        </div>
+    </section>
+
+    <!-- ===== ADD EXPENSE ===== -->
+    <section class="card">
+        <h3>Add Expense</h3>
+
+        <div class="input-group">
+            <label>Expense Name</label>
+            <input type="text" id="text" placeholder="e.g. Food">
         </div>
 
         <div class="input-group">
-            <input type="text" id="descInput" placeholder="Expense Name (e.g. Pizza)">
-            <input type="number" id="amountInput" placeholder="Amount">
-            <button onclick="addExpense()">Add Expense</button>
+            <label>Amount</label>
+            <input type="number" id="amount" placeholder="₦0.00">
         </div>
 
-        <ul id="expenseList">
-            </ul>
-    </div>
+        <button class="btn-primary add-btn" onclick="addTransaction()">
+            Add Expense
+        </button>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- ===== EXPENSE HISTORY ===== -->
+    <section class="card">
+        <h3>Recent Expenses</h3>
+        <ul id="list" class="expense-list"></ul>
+    </section>
+
+</main>
+
+<!-- ================= SCRIPT ================= -->
+<script src="../assets/js/main.js"></script>
+
 </body>
-</html> -->
+</html>
